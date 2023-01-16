@@ -1,13 +1,17 @@
 const express = require('express')
 const app = express()
-const port = 80
-
-// app.get('/', (req, res) => {
-//   res.send('Hello World from Express serverc!')
-// })
+const port = 3000
 
 app.use(express.static('../frontend/dist'))
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+const startServer = port => {
+ try {
+   app.listen(port, () => {
+  console.log(`App listening on port ${port}`)
 })
+ } catch (error) {
+  console.log('An error has ocurred: ', error)
+ }
+}
+
+startServer(port)
