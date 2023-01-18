@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.get('/ip', (req, res) => {
+  return res.json({ip: req.ip})
+})
 app.use(express.static('../frontend/dist'))
 
 const startServer = port => {
